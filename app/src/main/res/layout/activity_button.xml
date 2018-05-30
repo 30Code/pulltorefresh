@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="停止刷新"/>
+
+    <Button
+        android:id="@+id/btn_stop_success"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="停止刷新->成功"/>
+
+    <Button
+        android:id="@+id/btn_stop_failure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="停止刷新->失败"/>
+
+    <com.fanwe.lib.pulltorefresh.FPullToRefreshView
+        android:id="@+id/view_pull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yellow"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/white"
+            android:text="覆盖模式"/>
+
+    </com.fanwe.lib.pulltorefresh.FPullToRefreshView>
+
+</LinearLayout>
