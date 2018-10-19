@@ -1,23 +1,9 @@
-/*
- * Copyright (C) 2017 zhengjun, fanwe (http://www.fanwe.com)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package cn.linhome.lib.pulltorefresh;
 
 import android.view.View;
 
 import cn.linhome.lib.pulltorefresh.loadingview.LoadingView;
+
 
 public interface PullToRefreshView
 {
@@ -47,16 +33,16 @@ public interface PullToRefreshView
     /**
      * 设置状态变化回调
      *
-     * @param onStateChangedCallback
+     * @param onStateChangeCallback
      */
-    void setOnStateChangedCallback(OnStateChangedCallback onStateChangedCallback);
+    void setOnStateChangeCallback(OnStateChangeCallback onStateChangeCallback);
 
     /**
      * 设置view位置变化回调
      *
-     * @param onViewPositionChangedCallback
+     * @param onViewPositionChangeCallback
      */
-    void setOnViewPositionChangedCallback(OnViewPositionChangedCallback onViewPositionChangedCallback);
+    void setOnViewPositionChangeCallback(OnViewPositionChangeCallback onViewPositionChangeCallback);
 
     /**
      * 设置可以触发拖动的条件，设置后当view内部满足拖动，并且此对象也满足条件后才可以触发拖动
@@ -244,7 +230,7 @@ public interface PullToRefreshView
         PULL_DISABLE,
     }
 
-    interface OnStateChangedCallback
+    interface OnStateChangeCallback
     {
         /**
          * 状态变化回调
@@ -273,7 +259,7 @@ public interface PullToRefreshView
         void onRefreshingFromFooter(PullToRefreshView view);
     }
 
-    interface OnViewPositionChangedCallback
+    interface OnViewPositionChangeCallback
     {
         /**
          * view位置变化回调
@@ -286,17 +272,19 @@ public interface PullToRefreshView
     interface PullCondition
     {
         /**
-         * 当View内部可以从Header处拖动条件成立并且这个方法返回true的时候触发拖动
+         * 是否可以从Header处触发拖动
          *
+         * @param view
          * @return
          */
-        boolean canPullFromHeader();
+        boolean canPullFromHeader(PullToRefreshView view);
 
         /**
-         * 当View内部可以从Footer处拖动条件成立并且这个方法返回true的时候触发拖动
+         * 是否可以从Footer处触发拖动
          *
+         * @param view
          * @return
          */
-        boolean canPullFromFooter();
+        boolean canPullFromFooter(PullToRefreshView view);
     }
 }

@@ -8,9 +8,9 @@ android {
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 27
         versionCode 20180710
-        versionName "1.0.40"
+        versionName "1.0.41"
     }
 
     buildTypes {
@@ -27,8 +27,8 @@ android {
 }
 
 dependencies {
-    compileOnly 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.github.yangwb1259883028:gesture:1.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.github.yangwb1259883028:gesture:1.0.2'
 }
 
 
