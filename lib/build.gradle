@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.yangwb1259883028'
+group = 'com.github.30Code'
 
 android {
     compileSdkVersion 27
@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20181123
-        versionName "1.0.43"
+        versionCode 20181208
+        versionName "1.0.44"
     }
 
     buildTypes {
@@ -28,7 +28,7 @@ android {
 
 dependencies {
     compileOnly 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.github.yangwb1259883028:gesture:1.0.2'
+    implementation 'com.github.30Code:gesture:1.0.3'
 }
 
 
