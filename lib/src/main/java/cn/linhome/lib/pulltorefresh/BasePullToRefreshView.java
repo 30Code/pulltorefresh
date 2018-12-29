@@ -654,7 +654,7 @@ public abstract class BasePullToRefreshView extends ViewGroup implements PullToR
         LoadingView headerView = onCreateHeaderView();
         if (headerView == null)
         {
-            final String headerClassName = getResources().getString(R.string.lib_ptr_header_temporary_class);
+            final String headerClassName = getResources().getString(R.string.lib_ptr_header_class);
             headerView = createLoadingViewByClassName(headerClassName);
         }
         if (headerView == null)
@@ -667,7 +667,7 @@ public abstract class BasePullToRefreshView extends ViewGroup implements PullToR
         LoadingView footerView = onCreateFooterView();
         if (footerView == null)
         {
-            final String footerClassName = getResources().getString(R.string.lib_ptr_footer_temporary_class);
+            final String footerClassName = getResources().getString(R.string.lib_ptr_footer_class);
             footerView = createLoadingViewByClassName(footerClassName);
         }
         if (footerView == null)
