@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.fanwe.library.activity.SDBaseActivity;
-
+import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.pulltorefresh.activity.ButtonActivity;
 import cn.linhome.pulltorefresh.activity.ListViewActivity;
 import cn.linhome.pulltorefresh.activity.RecyclerViewActivity;

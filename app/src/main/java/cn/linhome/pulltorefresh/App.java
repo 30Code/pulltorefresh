@@ -2,7 +2,7 @@ package cn.linhome.pulltorefresh;
 
 import android.app.Application;
 
-import com.fanwe.library.SDLibrary;
+import cn.linhome.library.app.FApplication;
 
 /**
  * des:
@@ -10,12 +10,18 @@ import com.fanwe.library.SDLibrary;
  * on 2018/5/22.
  */
 
-public class App extends Application
+public class App extends FApplication
 {
     @Override
     public void onCreate()
     {
         super.onCreate();
-        SDLibrary.getInstance().init(this);
+
+    }
+
+    @Override
+    protected void onCreateMainProcess()
+    {
+
     }
 }

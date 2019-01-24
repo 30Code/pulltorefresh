@@ -7,14 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.fanwe.library.activity.SDBaseActivity;
-import com.fanwe.library.adapter.SDSimpleAdapter;
-
+import cn.linhome.lib.adapter.FSimpleAdapter;
 import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
+import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.pulltorefresh.CustomPullToRefreshLoadingView;
 import cn.linhome.pulltorefresh.R;
 import cn.linhome.pulltorefresh.model.DataModel;
+
+import static cn.linhome.lib.utils.FViewHolder.get;
 
 public class ListViewActivity extends SDBaseActivity
 {
@@ -29,6 +30,8 @@ public class ListViewActivity extends SDBaseActivity
         mListView = findViewById(R.id.listView);
         mListView.setAdapter(mAdapter);
 
+        mAdapter.getDataHolder().setData(DataModel.getListModel(20));
+
         view_pull.setDebug(true);
         view_pull.setFooterView(new CustomPullToRefreshLoadingView(this)); //自定义FooterView
         view_pull.setOnRefreshCallback(new PullToRefreshView.OnRefreshCallback()
@@ -42,7 +45,7 @@ public class ListViewActivity extends SDBaseActivity
                     @Override
                     public void run()
                     {
-                        mAdapter.setData(DataModel.getListModel(20));
+                        mAdapter.getDataHolder().setData(DataModel.getListModel(20));
                         view.stopRefreshing();
                     }
                 }, 1000);
@@ -57,7 +60,7 @@ public class ListViewActivity extends SDBaseActivity
                     @Override
                     public void run()
                     {
-                        mAdapter.appendData(DataModel.getListModel(10));
+                        mAdapter.getDataHolder().appendData(DataModel.getListModel(10));
                         view.stopRefreshing();
                     }
                 }, 1000);
@@ -66,7 +69,7 @@ public class ListViewActivity extends SDBaseActivity
         view_pull.startRefreshingFromHeader();
     }
 
-    private SDSimpleAdapter<DataModel> mAdapter = new SDSimpleAdapter<DataModel>(DataModel.getListModel(20),this)
+    private FSimpleAdapter<DataModel> mAdapter = new FSimpleAdapter<DataModel>(this)
     {
         @Override
         public int getLayoutId(int position, View convertView, ViewGroup parent)
@@ -75,7 +78,7 @@ public class ListViewActivity extends SDBaseActivity
         }
 
         @Override
-        public void bindData(int position, View convertView, ViewGroup parent, DataModel model)
+        public void onBindData(int position, View convertView, ViewGroup parent, DataModel model)
         {
             TextView tv_content = get(R.id.tv_content, convertView);
             tv_content.setText(model.getName());

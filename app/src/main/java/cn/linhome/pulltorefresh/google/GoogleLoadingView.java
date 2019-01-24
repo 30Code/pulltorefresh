@@ -8,10 +8,9 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 
-import com.fanwe.library.utils.LogUtil;
-
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
 import cn.linhome.lib.pulltorefresh.loadingview.BaseLoadingView;
+import cn.linhome.library.utils.LogUtil;
 
 /**
  * Created by Administrator on 2017/7/26.

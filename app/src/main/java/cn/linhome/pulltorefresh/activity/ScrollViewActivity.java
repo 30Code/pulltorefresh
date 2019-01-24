@@ -5,10 +5,9 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 
-import com.fanwe.library.activity.SDBaseActivity;
-
 import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
+import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.pulltorefresh.R;
 
 public class ScrollViewActivity extends SDBaseActivity

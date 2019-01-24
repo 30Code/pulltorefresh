@@ -5,13 +5,12 @@ import android.os.Handler;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.fanwe.library.activity.SDBaseActivity;
-import com.fanwe.library.adapter.SDSimpleRecyclerAdapter;
-import com.fanwe.library.adapter.viewholder.SDRecyclerViewHolder;
-import com.fanwe.library.view.SDRecyclerView;
-
+import cn.linhome.lib.adapter.FSimpleRecyclerAdapter;
+import cn.linhome.lib.adapter.viewholder.FRecyclerViewHolder;
 import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
+import cn.linhome.library.activity.SDBaseActivity;
+import cn.linhome.library.view.SDRecyclerView;
 import cn.linhome.pulltorefresh.CustomPullToRefreshLoadingView;
 import cn.linhome.pulltorefresh.R;
 import cn.linhome.pulltorefresh.model.DataModel;
@@ -29,6 +28,25 @@ public class RecyclerViewActivity extends SDBaseActivity
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setAdapter(mAdapter);
 
+        mRecyclerView.addOnScrollCallBack(new SDRecyclerView.OnScrollCallBack()
+        {
+            @Override
+            public void onLoadMore()
+            {
+                view_pull.startRefreshingFromFooter();
+                //底部加载回调
+                new Handler().postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        mAdapter.getDataHolder().appendData(DataModel.getListModel(3));
+                        view_pull.stopRefreshing();
+                    }
+                }, 1000);
+            }
+        });
+
         view_pull.setDebug(true);
         view_pull.setHeaderView(new CustomPullToRefreshLoadingView(this)); //自定义HeaderView
         view_pull.setOnRefreshCallback(new PullToRefreshView.OnRefreshCallback()
@@ -42,7 +60,6 @@ public class RecyclerViewActivity extends SDBaseActivity
                     @Override
                     public void run()
                     {
-                        mAdapter.updateData(DataModel.getListModel(3));
                         view.stopRefreshing();
                     }
                 }, 1000);
@@ -57,19 +74,22 @@ public class RecyclerViewActivity extends SDBaseActivity
                     @Override
                     public void run()
                     {
-                        mAdapter.appendData(DataModel.getListModel(3));
+                        mAdapter.getDataHolder().appendData(DataModel.getListModel(3));
                         view.stopRefreshing();
                     }
                 }, 1000);
             }
         });
+
+        mAdapter.getDataHolder().setData(DataModel.getListModel(20));
         view_pull.startRefreshingFromHeader();
     }
 
-    private SDSimpleRecyclerAdapter<DataModel> mAdapter = new SDSimpleRecyclerAdapter<DataModel>(this)
+    private FSimpleRecyclerAdapter<DataModel> mAdapter = new FSimpleRecyclerAdapter<DataModel>(this)
     {
+
         @Override
-        public void onBindData(SDRecyclerViewHolder<DataModel> holder, int position, DataModel model)
+        public void onBindData(FRecyclerViewHolder<DataModel> holder, int position, DataModel model)
         {
             TextView tv_content = (TextView) holder.get(R.id.tv_content);
             tv_content.setText(String.valueOf(model.getName()));

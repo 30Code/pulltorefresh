@@ -6,11 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.fanwe.lib.utils.FViewUtil;
-import com.fanwe.lib.utils.context.FResUtil;
-
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
 import cn.linhome.lib.pulltorefresh.loadingview.SimpleImageLoadingView;
+import cn.linhome.lib.utils.FViewUtil;
+import cn.linhome.lib.utils.context.FResUtil;
 
 /**
  * Created by Administrator on 2017/6/30.

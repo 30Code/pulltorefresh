@@ -5,10 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.fanwe.library.activity.SDBaseActivity;
-
 import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
+import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.pulltorefresh.R;
 import cn.linhome.pulltorefresh.google.GoogleLoadingView;
 

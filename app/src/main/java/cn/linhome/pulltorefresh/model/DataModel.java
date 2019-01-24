@@ -1,8 +1,6 @@
 package cn.linhome.pulltorefresh.model;
 
 
-import com.fanwe.lib.selectmanager.SDSelectManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +8,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/14.
  */
 
-public class DataModel implements SDSelectManager.Selectable
+public class DataModel
 {
 
     private String name;
@@ -38,17 +36,5 @@ public class DataModel implements SDSelectManager.Selectable
             listModel.add(model);
         }
         return listModel;
-    }
-
-    @Override
-    public boolean isSelected()
-    {
-        return selected;
-    }
-
-    @Override
-    public void setSelected(boolean selected)
-    {
-        this.selected = selected;
     }
 }
