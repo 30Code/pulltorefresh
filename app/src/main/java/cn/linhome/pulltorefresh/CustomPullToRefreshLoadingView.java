@@ -47,10 +47,10 @@ public class CustomPullToRefreshLoadingView extends SimpleImageLoadingView
             case RESET:
             case PULL_TO_REFRESH:
             case FINISH:
-                getImageView().setImageResource(R.drawable.ic_pull_refresh_normal);
+                getImageView().setImageResource(R.drawable.ic_pull_refresh_progress16);
                 break;
             case RELEASE_TO_REFRESH:
-                getImageView().setImageResource(R.drawable.ic_pull_refresh_ready);
+                getImageView().setImageResource(R.drawable.ic_pull_refresh_progress0);
                 break;
             case REFRESHING:
                 getImageView().setImageResource(R.drawable.ic_pull_refresh_refreshing);

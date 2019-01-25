@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:oneshot="false"
-    >
+    android:oneshot="false">
     <item
         android:drawable="@drawable/ic_pull_refresh_progress0"
         android:duration="100"></item>
@@ -12,7 +11,6 @@
     <item
         android:drawable="@drawable/ic_pull_refresh_progress2"
         android:duration="100"></item>
-
     <item
         android:drawable="@drawable/ic_pull_refresh_progress3"
         android:duration="100"></item>
@@ -30,5 +28,26 @@
         android:duration="100"></item>
     <item
         android:drawable="@drawable/ic_pull_refresh_progress8"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress9"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress10"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress12"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress13"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress14"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress15"
+        android:duration="100"></item>
+    <item
+        android:drawable="@drawable/ic_pull_refresh_progress16"
         android:duration="100"></item>
 </animation-list>
