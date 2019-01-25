@@ -36,7 +36,7 @@ public class CustomPullToRefreshLoadingView extends SimpleImageLoadingView
     protected void init()
     {
         super.init();
-        FViewUtil.setHeight(getImageView(), FResUtil.dp2px(35));
+        FViewUtil.setHeight(getImageView(), FResUtil.dp2px(20));
     }
 
     @Override
