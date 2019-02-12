@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <cn.linhome.lib.pulltorefresh.FPullToRefreshView
+        android:id="@+id/view_pull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yellow">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nsl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <cn.linhome.library.view.SDFullRecyclerView
+                android:id="@+id/fullrecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </cn.linhome.lib.pulltorefresh.FPullToRefreshView>
+
+</LinearLayout>

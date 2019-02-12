@@ -18,6 +18,12 @@
         android:text="Recyclerview_Activity"/>
 
     <Button
+        android:id="@+id/btn_full_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="FullRecyclerview_Activity"/>
+
+    <Button
         android:id="@+id/btn_listview"
         android:layout_width="match_parent"
         android:layout_height="50dp"

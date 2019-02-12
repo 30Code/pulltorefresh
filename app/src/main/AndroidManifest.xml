@@ -20,6 +20,7 @@
 
         <activity android:name=".activity.ButtonActivity"/>
         <activity android:name=".activity.RecyclerViewActivity"/>
+        <activity android:name=".activity.FullRecyclerViewActivity"/>
         <activity android:name=".activity.ListViewActivity"/>
         <activity android:name=".activity.ScrollViewActivity"/>
     </application>
