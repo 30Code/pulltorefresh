@@ -3,6 +3,7 @@ package cn.linhome.lib.pulltorefresh.loadingview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
@@ -30,16 +31,23 @@ public class SimpleTextLoadingView extends BaseLoadingView
     }
 
     private TextView tv_content;
+    private ProgressBar pb_loading;
 
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_ptr_view_simple_text_loading, this, true);
+        pb_loading = findViewById(R.id.pb_loading);
         tv_content = findViewById(R.id.tv_content);
     }
 
     public TextView getTextView()
     {
         return tv_content;
+    }
+
+    public ProgressBar getProgressBar()
+    {
+        return pb_loading;
     }
 
     @Override
@@ -54,7 +62,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
+                    loadingMoreData();
                 }
                 break;
             case RELEASE_TO_REFRESH:
@@ -63,7 +71,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_release_to_refresh_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_release_to_refresh_footer));
+                    loadingMoreData();
                 }
                 break;
             case REFRESHING:
@@ -72,7 +80,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_footer));
+                    loadingMoreData();
                 }
                 break;
             case REFRESHING_SUCCESS:
@@ -81,7 +89,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_success_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_success_footer));
+                    loadingMoreData();
                 }
                 break;
             case REFRESHING_FAILURE:
@@ -90,7 +98,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_failure_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_failure_footer));
+                    loadingMoreData();
                 }
                 break;
             case FINISH:
@@ -101,9 +109,15 @@ public class SimpleTextLoadingView extends BaseLoadingView
                         getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_header));
                     } else if (this == getPullToRefreshView().getFooterView())
                     {
-                        getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
+                        loadingMoreData();
                     }
                 }
         }
+    }
+
+    private void loadingMoreData()
+    {
+        getProgressBar().setVisibility(VISIBLE);
+        getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
     }
 }
