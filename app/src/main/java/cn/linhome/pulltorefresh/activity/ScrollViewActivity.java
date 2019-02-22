@@ -8,12 +8,14 @@ import android.widget.Button;
 import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
 import cn.linhome.library.activity.SDBaseActivity;
+import cn.linhome.pulltorefresh.CustomTextLoadingView;
 import cn.linhome.pulltorefresh.R;
 
 public class ScrollViewActivity extends SDBaseActivity
 {
     private static final String TAG = "ScrollViewActivity";
 
+    private CustomTextLoadingView mCustomTextLoadingView;
     private FPullToRefreshView view_pull;
     private Button btn;
 
@@ -24,7 +26,11 @@ public class ScrollViewActivity extends SDBaseActivity
         view_pull = (FPullToRefreshView) findViewById(R.id.view_pull);
         btn = (Button) findViewById(R.id.btn);
 
+        mCustomTextLoadingView = new CustomTextLoadingView(this);
+        mCustomTextLoadingView.setCompleteLoading(true);
+
         view_pull.setDebug(true);
+        view_pull.setFooterView(mCustomTextLoadingView);
         view_pull.setOnStateChangeCallback(new PullToRefreshView.OnStateChangeCallback()
         {
             @Override
@@ -73,7 +79,7 @@ public class ScrollViewActivity extends SDBaseActivity
                 }, 1000);
             }
         });
-        view_pull.startRefreshingFromFooter();
+        view_pull.startRefreshingFromHeader();
     }
 
 }

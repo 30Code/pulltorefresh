@@ -62,7 +62,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    loadingMoreData();
+                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
                 }
                 break;
             case RELEASE_TO_REFRESH:
@@ -71,7 +71,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_release_to_refresh_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    loadingMoreData();
+                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_release_to_refresh_footer));
                 }
                 break;
             case REFRESHING:
@@ -80,7 +80,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    loadingMoreData();
+                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_footer));
                 }
                 break;
             case REFRESHING_SUCCESS:
@@ -89,7 +89,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_success_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    loadingMoreData();
+                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_success_footer));
                 }
                 break;
             case REFRESHING_FAILURE:
@@ -98,7 +98,7 @@ public class SimpleTextLoadingView extends BaseLoadingView
                     getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_failure_header));
                 } else if (this == getPullToRefreshView().getFooterView())
                 {
-                    loadingMoreData();
+                    getTextView().setText(getResources().getString(R.string.lib_ptr_state_refreshing_failure_footer));
                 }
                 break;
             case FINISH:
@@ -109,15 +109,9 @@ public class SimpleTextLoadingView extends BaseLoadingView
                         getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_header));
                     } else if (this == getPullToRefreshView().getFooterView())
                     {
-                        loadingMoreData();
+                        getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
                     }
                 }
         }
-    }
-
-    private void loadingMoreData()
-    {
-        getProgressBar().setVisibility(VISIBLE);
-        getTextView().setText(getResources().getString(R.string.lib_ptr_state_pull_to_refresh_footer));
     }
 }
