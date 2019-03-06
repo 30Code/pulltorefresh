@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +30,32 @@ public class ListViewActivity extends SDBaseActivity
         view_pull = findViewById(R.id.view_pull);
         mListView = findViewById(R.id.listView);
         mListView.setAdapter(mAdapter);
+
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener()
+        {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState)
+            {
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+            {
+                if (visibleItemCount + firstVisibleItem == totalItemCount)
+                {
+                    View lastVisibleItemView = mListView.getChildAt(totalItemCount - firstVisibleItem - 1);
+                    if (lastVisibleItemView != null && lastVisibleItemView.getBottom() == view.getHeight())
+                    {
+                        if (view_pull.isRefreshing())
+                        {
+                            return;
+                        }
+
+                        view_pull.startRefreshingFromFooter();
+                    }
+                }
+            }
+        });
 
         mAdapter.getDataHolder().setData(DataModel.getListModel(20));
 
@@ -60,7 +87,7 @@ public class ListViewActivity extends SDBaseActivity
                     @Override
                     public void run()
                     {
-                        mAdapter.getDataHolder().appendData(DataModel.getListModel(10));
+                        mAdapter.getDataHolder().appendData(DataModel.getListModel(3));
                         view.stopRefreshing();
                     }
                 }, 1000);

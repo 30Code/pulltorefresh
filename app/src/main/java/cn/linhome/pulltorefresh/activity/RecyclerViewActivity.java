@@ -33,17 +33,12 @@ public class RecyclerViewActivity extends SDBaseActivity
             @Override
             public void onLoadMore()
             {
-                view_pull.startRefreshingFromFooter();
-                //底部加载回调
-                new Handler().postDelayed(new Runnable()
+                if (view_pull.isRefreshing())
                 {
-                    @Override
-                    public void run()
-                    {
-                        mAdapter.getDataHolder().appendData(DataModel.getListModel(3));
-                        view_pull.stopRefreshing();
-                    }
-                }, 1000);
+                    return;
+                }
+
+                view_pull.startRefreshingFromFooter();
             }
         });
 
