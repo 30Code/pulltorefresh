@@ -1,10 +1,11 @@
 package cn.linhome.pulltorefresh;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
 import cn.linhome.lib.pulltorefresh.loadingview.SimpleImageLoadingView;

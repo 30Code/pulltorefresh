@@ -2,9 +2,10 @@ package cn.linhome.pulltorefresh.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.NestedScrollView;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.core.widget.NestedScrollView;
 
 import cn.linhome.lib.adapter.FSimpleRecyclerAdapter;
 import cn.linhome.lib.adapter.viewholder.FRecyclerViewHolder;
@@ -12,7 +13,6 @@ import cn.linhome.lib.pulltorefresh.FPullToRefreshView;
 import cn.linhome.lib.pulltorefresh.PullToRefreshView;
 import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.library.view.SDFullRecyclerView;
-import cn.linhome.library.view.SDRecyclerView;
 import cn.linhome.pulltorefresh.CustomPullToRefreshLoadingView;
 import cn.linhome.pulltorefresh.R;
 import cn.linhome.pulltorefresh.model.DataModel;
