@@ -27,7 +27,7 @@ public class ScrollViewActivity extends SDBaseActivity
         btn = (Button) findViewById(R.id.btn);
 
         mCustomTextLoadingView = new CustomTextLoadingView(this);
-        mCustomTextLoadingView.setCompleteLoading(true);
+        mCustomTextLoadingView.setCompleteLoading(false);
 
         view_pull.setDebug(true);
         view_pull.setFooterView(mCustomTextLoadingView);

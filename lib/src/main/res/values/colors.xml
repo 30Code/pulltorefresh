@@ -4,4 +4,7 @@
     <!-- 默认的加载view中提示文字的颜色 -->
     <color name="lib_ptr_text_loading_info">#888888</color>
 
+    <color name="FF881D">#FF881D</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>
