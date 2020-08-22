@@ -33,7 +33,7 @@
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="正在加载更多的数据..."
+            android:text=""
             android:textColor="@color/lib_ptr_text_loading_info"
             android:textSize="@dimen/lib_ptr_text_loading_info"
             android:layout_marginLeft="5dp"/>
